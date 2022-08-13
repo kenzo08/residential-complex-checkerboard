@@ -5,6 +5,7 @@ import FilterBase from "./components/FilterBase.vue";
 
 const entrances = ref([])
 const flats = ref({})
+const houses = ref([])
 
 onMounted(async () => {
   await fetch('/data/data.json')
@@ -14,18 +15,25 @@ onMounted(async () => {
       .then((data) => {
         entrances.value = data.entrances;
         flats.value = data.flats;
+        houses.value = data.houses;
       });
 })
 
 </script>
 
 <template>
-  <div :class="$style.container">
-    <FilterBase/>
-    <Table v-if="entrances.length" :entrances="entrances" :flats="flats" />
+  <div>
+    <FilterBase :class="$style.container"/>
+    <Table v-if="entrances.length" :entrances="entrances" :flats="flats" :houses="houses" />
   </div>
 </template>
 <style module>
 .container{
+}
+</style>
+
+<style module>
+.container{
+  background-color: white;
 }
 </style>

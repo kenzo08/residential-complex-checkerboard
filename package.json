@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.2.37",
-    "vue-dragscroll": "^4.0.3",
+    "vue-dragscroll": "^4.0.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.0",
