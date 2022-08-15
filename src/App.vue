@@ -24,7 +24,6 @@ onMounted(async () => {
         }
       )
         })
-  console.log(houses.value)
       });
 
 </script>
