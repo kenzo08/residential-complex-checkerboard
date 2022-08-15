@@ -77,7 +77,7 @@ const getFlat = (id: string) => {
 }
 
 .table tr:hover {
-  background-color: yellow;
+  background-color: #FFFF00;
   cursor: pointer;
 }
 
@@ -86,7 +86,7 @@ td, th {
 }
 
 td:hover::after {
-  background-color: yellow;
+  background-color: #FFFF00;
   overflow: hidden;
   content: '';
   height: 10000px;
@@ -97,12 +97,12 @@ td:hover::after {
   z-index: -1;
 }
 
-.title{
+.title {
   display: flex;
   flex-direction: row;
   width: max-content;
   position: absolute;
-  bottom: -50px;
+  bottom: -30px;
   left: 30px;
   font-size: 13px;
   font-weight: 600;

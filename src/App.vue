@@ -5,7 +5,11 @@ import FilterBase from "./components/FilterBase.vue";
 
 const entrances = ref([])
 const flats = ref({})
-const houses = ref([])
+interface Ihouses{
+  id: string;
+  houseName: string
+}
+const houses = ref<Ihouses[]>([]);
 
 onMounted(async () => {
   await fetch('/data/data.json')
@@ -15,23 +19,22 @@ onMounted(async () => {
       .then((data) => {
         entrances.value = data.entrances;
         flats.value = data.flats;
-        houses.value = data.houses;
+        data.houses.forEach((el: string, index: number)=>{
+          houses.value.push({id: el, houseName: `Дом ${index+1}`})
+        }
+      )
+        })
+  console.log(houses.value)
       });
-})
 
 </script>
 
 <template>
   <div>
-    <FilterBase :class="$style.container"/>
+    <FilterBase :class="$style.container" :houses="houses" />
     <Table v-if="entrances.length" :entrances="entrances" :flats="flats" :houses="houses" />
   </div>
 </template>
-<style module>
-.container{
-}
-</style>
-
 <style module>
 .container{
   background-color: white;

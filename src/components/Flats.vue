@@ -1,26 +1,31 @@
 <template>
-  <div :class="$style.container">
-    <div :class="$style.box" :style="{backgroundColor: getColorByStatus(flat)}" @mouseover="isHover = true" @mouseleave="isHover = false">
-      {{ getPlanType(flat) }}
-      <div :class="$style.description" v-if="isHover">
-        <span>Цена: {{flat?.cost}}</span>
-        <span>Тип: {{flat?.type}}</span>
-        <span>Этаж: {{flat?.floor}}</span>
-        <span>Площадь: {{flat?.square}} кв.м</span>
-        <span>Номер: {{flat?.number}}</span>
-        <span>Статус: {{flat?.status}}</span>
-      </div>
+  <div :class="$style.box" :style="{backgroundColor: getColorByStatus(flat)}" @mouseover="isHover=true"
+       @mouseleave="isHover=false">
+    {{ getPlanType(flat) }}
+    <div v-if="isHover" :class="$style.description">
+      <p :class="$style.label">Подробно о недвижимости:</p>
+      <p><span :class="$style.label">Цена: </span> {{formatter.format(flat?.cost)}}</p>
+      <p><span :class="$style.label">Тип: </span> {{flat?.type}}</p>
+      <p><span :class="$style.label">Этаж:</span>{{flat?.floor}}</p>
+      <p><span :class="$style.label">Площадь: </span> {{ flat?.square}} кв.м</p>
+      <p><span :class="$style.label">Номер: </span> {{ flat?.number}}</p>
+      <p><span :class="$style.label">Статус: </span> {{flat?.status}}</p>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 import {ref} from "vue";
 
 interface Props {
   flat: object;
 }
+
+const formatter = new Intl.NumberFormat('ru-ru', {
+  style: 'currency',
+  currency: 'RUB',
+});
+
 
 defineProps<Props>()
 
@@ -41,7 +46,7 @@ const getColorByStatus = (flat) => {
   }
 }
 
-const isHover= ref(false)
+const isHover = ref(false)
 
 const getPlanType = (flat) => {
   if (flat) {
@@ -60,18 +65,29 @@ const getPlanType = (flat) => {
   position: relative;
 }
 
-.description{
+.description {
   display: flex;
   width: max-content;
   flex-direction: column;
-  gap: 8px;
-  position: absolute;
-  background-color: white;
+  height: max-content;
+  position: fixed;
+  background-color: #FFF;
   color: black;
-  left: 30px;
+  top: 115px;
+  left: 500px;
   z-index: 1;
-  padding: 5px 10px;
+  padding: 0 10px;
   border: solid 1px #ccc;
   border-radius: 5px;
+}
+
+.label{
+  font-weight: 600;
+}
+
+p {
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
 </style>
