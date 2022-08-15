@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, watch} from "vue";
+import {ref} from "vue";
 import SelectBase from "./atom/SelectBase.vue";
 import AccordionBase from './atom/AccordionBase.vue';
 

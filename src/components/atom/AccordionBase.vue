@@ -15,8 +15,10 @@ interface Props {
   label: string;
 }
 
-const isShow = ref(false)
 defineProps<Props>()
+
+const isShow = ref(false)
+
 </script>
 
 <style module>
