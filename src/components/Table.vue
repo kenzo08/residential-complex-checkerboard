@@ -16,11 +16,11 @@
 
 <script setup lang="ts">
 import Flats from "./Flats.vue";
-import {IFlat} from "../types";
+import {IEntrance, IFlat, IHouse} from "../types";
 
 interface Props {
-  houses: [];
-  entrances: [];
+  houses: IHouse;
+  entrances: IEntrance;
   flats: IFlat;
 }
 

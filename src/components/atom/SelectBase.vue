@@ -12,17 +12,17 @@
 </template>
 
 <script setup lang="ts">
-import {ISelect} from "../../types";
+import {IHouse} from "../../types";
 
 interface Props {
   modelValue: string;
-  options: ISelect;
+  options: IHouse;
   label: string
 }
 
 defineProps<Props>()
 const emit = defineEmits(['update:modelValue'])
-const changeOption = (event) => {
+const changeOption = (event: Event) => {
   emit('update:modelValue', event?.target?.value)
 };
 </script>

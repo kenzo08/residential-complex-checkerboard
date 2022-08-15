@@ -45,9 +45,10 @@
 import {ref} from "vue";
 import SelectBase from "./atom/SelectBase.vue";
 import AccordionBase from './atom/AccordionBase.vue';
+import {IHouse} from "../types";
 
 interface Props {
-  houses: [];
+  houses: IHouse;
   status: object;
 }
 

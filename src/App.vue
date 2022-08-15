@@ -2,14 +2,12 @@
 import {onMounted, ref} from "vue";
 import Table from "./components/Table.vue";
 import FilterBase from "./components/FilterBase.vue";
+import {IEntrance, IFlat, IHouse} from "./types";
 
-const entrances = ref([])
-const flats = ref({})
-interface Ihouses{
-  id: string;
-  houseName: string
-}
-const houses = ref<Ihouses[]>([]);
+const entrances = ref<IEntrance[]>([])
+const flats = ref<IFlat>()
+
+const houses = ref<IHouse[]>([]);
 
 onMounted(async () => {
   await fetch('/data/data.json')

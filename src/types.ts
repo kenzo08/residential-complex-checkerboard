@@ -1,4 +1,4 @@
-export interface IFlat{
+export interface IFlat {
     id: string;
     cost: number;
     type: string;
@@ -15,7 +15,26 @@ export interface IFlat{
     installment: boolean;
 }
 
-export interface ISelect{
-    id: string;
+
+export interface IflatMini {
+    id: string | number;
+    number: number;
+}
+
+export interface IHouse {
+    id: string | number;
     houseName: string;
+}
+
+
+export interface IFloor {
+    floor: number;
+    flats: IflatMini;
+}
+
+export interface IEntrance {
+    id: string | number;
+    house_id: string;
+    title: string;
+    floors: IFloor;
 }
