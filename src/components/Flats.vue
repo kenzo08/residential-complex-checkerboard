@@ -17,11 +17,6 @@
 <script setup lang="ts">
 import {ref} from "vue";
 
-interface Props {
-  flat: object;
-}
-
-defineProps<Props>()
 
 interface IFlat{
   id: string;
@@ -39,6 +34,13 @@ interface IFlat{
   renovation: boolean;
   installment: boolean;
 }
+interface Props {
+  flat: IFlat;
+}
+
+defineProps<Props>()
+
+
 const formatter = new Intl.NumberFormat('ru-ru', {
   style: 'currency',
   currency: 'RUB',
