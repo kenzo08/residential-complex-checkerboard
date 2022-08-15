@@ -14,3 +14,8 @@ export interface IFlat{
     renovation: boolean;
     installment: boolean;
 }
+
+export interface ISelect{
+    id: string;
+    houseName: string;
+}

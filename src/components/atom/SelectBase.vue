@@ -12,9 +12,11 @@
 </template>
 
 <script setup lang="ts">
+import {ISelect} from "../../types";
+
 interface Props {
   modelValue: string;
-  options: [];
+  options: ISelect;
   label: string
 }
 
