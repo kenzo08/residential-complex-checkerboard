@@ -2,10 +2,10 @@
 import {onMounted, ref} from "vue";
 import Table from "./components/Table.vue";
 import FilterBase from "./components/FilterBase.vue";
-import {IEntrance, IFlat, IHouse} from "./types";
+import {IEntrance, IFlat, IFlatList, IHouse} from "./types";
 
-const entrances = ref<IEntrance[]>([])
-const flats = ref<IFlat>()
+const entrances = ref<IEntrance[]>([]);
+const flats = ref<IFlatList>({});
 
 const houses = ref<IHouse[]>([]);
 
@@ -17,23 +17,23 @@ onMounted(async () => {
       .then((data) => {
         entrances.value = data.entrances;
         flats.value = data.flats;
-        data.houses.forEach((el: string, index: number)=>{
-          houses.value.push({id: el, houseName: `Дом ${index+1}`})
-        }
-      )
-        })
-      });
+        data.houses.forEach((el: string, index: number) => {
+              houses.value.push({id: el, houseName: `Дом ${index + 1}`})
+            }
+        )
+      })
+});
 
 </script>
 
 <template>
   <div>
-    <FilterBase :class="$style.container" :houses="houses" />
-    <Table v-if="entrances.length" :entrances="entrances" :flats="flats" :houses="houses" />
+    <FilterBase :class="$style.container" :houses="houses"/>
+    <Table v-if="entrances.length" :entrances="entrances" :flats="flats" :houses="houses"/>
   </div>
 </template>
 <style module>
-.container{
+.container {
   background-color: white;
 }
 </style>

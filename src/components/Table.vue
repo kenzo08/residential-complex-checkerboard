@@ -2,7 +2,7 @@
   <div :class="$style['inline-wrapper']" v-dragscroll.x>
     <div v-for="entrance in entrances" :key="entrance.id" :class="$style['table-div']">
       <table :class="$style.table">
-        <tr v-for="floor in entrance.floors" :key="floor">
+        <tr v-for="floor in entrance.floors" :key="floor.floor">
           <span :class="$style.floor">{{ floor.floor }}</span>
           <td v-for="flat in floor.flats" :key="flat.id">
             <Flats :flat="getFlat(flat.id)"/>
@@ -16,12 +16,12 @@
 
 <script setup lang="ts">
 import Flats from "./Flats.vue";
-import {IEntrance, IFlat, IHouse} from "../types";
+import {IEntrance, IFlat, IFlatList, IHouse} from "../types";
 
 interface Props {
-  houses: IHouse;
-  entrances: IEntrance;
-  flats: IFlat;
+  houses: IHouse[];
+  entrances: IEntrance[];
+  flats: IFlatList;
 }
 
 const props = defineProps<Props>();

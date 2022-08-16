@@ -48,8 +48,8 @@ import AccordionBase from './atom/AccordionBase.vue';
 import {IHouse} from "../types";
 
 interface Props {
-  houses: IHouse;
-  status: object;
+  houses: IHouse[];
+  status?: object;
 }
 
 defineProps<Props>()

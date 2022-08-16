@@ -16,14 +16,14 @@ import {IHouse} from "../../types";
 
 interface Props {
   modelValue: string;
-  options: IHouse;
+  options: IHouse[];
   label: string
 }
 
 defineProps<Props>()
 const emit = defineEmits(['update:modelValue'])
 const changeOption = (event: Event) => {
-  emit('update:modelValue', event?.target?.value)
+  emit('update:modelValue', event)
 };
 </script>
 

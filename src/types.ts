@@ -15,9 +15,13 @@ export interface IFlat {
     installment: boolean;
 }
 
+export interface IFlatList {
+    [key: string] : IFlat
+}
+
 
 export interface IflatMini {
-    id: string | number;
+    id: string;
     number: number;
 }
 
@@ -29,12 +33,12 @@ export interface IHouse {
 
 export interface IFloor {
     floor: number;
-    flats: IflatMini;
+    flats: IflatMini[];
 }
 
 export interface IEntrance {
     id: string | number;
     house_id: string;
     title: string;
-    floors: IFloor;
+    floors: IFloor[];
 }
