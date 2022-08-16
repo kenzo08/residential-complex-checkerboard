@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import Flats from "./Flats.vue";
-import {IEntrance, IFlat, IFlatList, IHouse} from "../types";
+import {IEntrance, IFlatList, IHouse} from "../types";
 
 interface Props {
   houses: IHouse[];

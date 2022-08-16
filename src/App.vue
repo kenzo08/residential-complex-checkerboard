@@ -2,7 +2,7 @@
 import {onMounted, ref} from "vue";
 import Table from "./components/Table.vue";
 import FilterBase from "./components/FilterBase.vue";
-import {IEntrance, IFlat, IFlatList, IHouse} from "./types";
+import {IEntrance, IFlatList, IHouse} from "./types";
 
 const entrances = ref<IEntrance[]>([]);
 const flats = ref<IFlatList>({});
